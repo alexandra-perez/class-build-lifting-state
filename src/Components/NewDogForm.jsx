@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { v1 as generateUniqueID } from "uuid";
+import { useState } from 'react';
+import { v1 as generateUniqueID } from 'uuid';
 
-export default function NewDogForm() {
+export default function NewDogForm({ handleAddDog, toggleNewDogForm }) {
   const [checked, setChecked] = useState(false);
-  const [selectOption, setSelectOption] = useState("");
+  const [selectOption, setSelectOption] = useState('');
   const [newDog, setNewDog] = useState({
-    id: "",
-    name: "",
+    id: '',
+    name: '',
     present: false,
     grade: 100,
-    age: "",
-    likesSwimming: "",
-    favFlavor: "",
-    contact: "",
+    age: '',
+    likesSwimming: '',
+    favFlavor: '',
+    contact: '',
   });
 
   function addDog() {
@@ -21,13 +21,13 @@ export default function NewDogForm() {
       name: newDog.name,
       present: false,
       grade: 100,
-      notes: "",
+      notes: '',
       age: newDog.age,
       likesSwimming: checked,
       favFlavor: selectOption,
       contact: newDog.contact,
     };
-    // handleAddDog(createDog);
+    handleAddDog(createDog);
   }
 
   function handleCheckboxChange() {
@@ -42,7 +42,7 @@ export default function NewDogForm() {
     event.preventDefault();
     addDog();
     resetDogForm();
-    // toggleNewDogForm();
+    toggleNewDogForm();
   }
 
   function handleTextChange(event) {
@@ -53,17 +53,17 @@ export default function NewDogForm() {
   }
   function resetDogForm() {
     setNewDog({
-      id: "",
-      name: "",
+      id: '',
+      name: '',
       present: false,
       grade: 100,
-      age: "",
-      likesSwimming: "",
-      favFlavor: "",
-      contact: "",
+      age: '',
+      likesSwimming: '',
+      favFlavor: '',
+      contact: '',
     });
     setChecked(false);
-    setSelectOption("");
+    setSelectOption('');
   }
 
   return (
